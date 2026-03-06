@@ -1,0 +1,7 @@
+{
+    "explorer.fileNesting.enabled": true,
+    "explorer.fileNesting.patterns": {
+        "pyproject.toml": "uv.lock",
+        "README.md": "CHANGELOG.md, LICENSE",
+    }
+}
