@@ -1,7 +1,7 @@
 {
     "explorer.fileNesting.enabled": true,
     "explorer.fileNesting.patterns": {
-        "pyproject.toml": "uv.lock",
+        "pyproject.toml": "uv.lock, pytest.ini",
         "README.md": "CHANGELOG.md, LICENSE",
     }
 }

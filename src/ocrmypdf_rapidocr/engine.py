@@ -24,14 +24,13 @@ def _import_rapidocr_symbols():
 
 
 @lru_cache(maxsize=16)
-def get_rapidocr_engine(language: str, config_path: str | None, text_score: float):
+def get_rapidocr_engine(language: str, config_path: str | None):
     RapidOCR, LangRec, EngineType = _import_rapidocr_symbols()
 
     langrec_name = map_language_to_langrec_name(language)
     langrec_value = getattr(LangRec, langrec_name)
 
     params = {
-        "Global.text_score": text_score,
         "Det.engine_type": EngineType.ONNXRUNTIME,
         "Cls.engine_type": EngineType.ONNXRUNTIME,
         "Rec.engine_type": EngineType.ONNXRUNTIME,
@@ -73,7 +72,10 @@ class RapidOCREngine(OcrEngine):
     def generate_hocr(input_file, output_hocr, output_text, options) -> None:
         language = select_single_language(options)
         config_path = get_option_config_path(options)
-        rapidocr_engine = get_rapidocr_engine(language, config_path)
+        rapidocr_engine = get_rapidocr_engine(
+            language,
+            config_path,
+        )
 
         with Image.open(input_file) as image:
             page_width, page_height = image.size

@@ -10,17 +10,22 @@ classifiers = [
     "Programming Language :: Python :: 3.13",
     "Programming Language :: Python :: 3.14",
 ]
-dependencies = [
-    "ocrmypdf>=17.3.0",
-    "onnxruntime>=1.24.3",
-    "rapidocr>=3.7.0",
-]
+dependencies = ["ocrmypdf>=17.3.0", "onnxruntime>=1.24.3", "rapidocr>=3.7.0"]
 
 [dependency-groups]
 dev = [
+    "pytest>=9.0.2",
+    "pytest-cov>=7.0.0",
+    "rapidfuzz>=3.14.1",
     "ruff>=0.15.5",
     "ty>=0.0.21",
 ]
+
+[tool.ruff]
+exclude = ["tests"]
+
+[tool.ty.src]
+exclude = ["tests"]
 
 [project.urls]
 Homepage = "https://github.com/adrianmazur-dev/ocrmypdf-rapidocr"
