@@ -25,8 +25,8 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add pyproject.toml uv.lock
-          git commit -m "chore: bump version to ${{ steps.version.outputs.version }}"
-          git push
+          git commit -m "chore: bump version to ${{ steps.version.outputs.version }}" || true
+          git push || true
 
   build:
     needs: bump-version
