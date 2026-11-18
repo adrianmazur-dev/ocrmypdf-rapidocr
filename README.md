@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> **Archived:** This repository is archived because OCRmyPDF introduced official, built-in support for RapidOCR in version 17.14.0. Please install the official extra via `pip install 'ocrmypdf[rapidocr]'` and use the `--ocr-engine rapidocr` flag instead.
+
 # ocrmypdf-rapidocr
 
 `ocrmypdf-rapidocr` is an OCRmyPDF plugin that uses [RapidOCR](https://github.com/RapidAI/RapidOCR) as an OCR engine.
